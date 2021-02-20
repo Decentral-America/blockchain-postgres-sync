@@ -1,6 +1,6 @@
 # Decetralchain — PostgreSQL sync scripts
 
-A set of scripts to download and update Waves blockchain history data into a PostgreSQL 11.x database.
+A set of scripts to download and update Decentralchain history data into a PostgreSQL 11.x database.
 
 ## Usage
 
