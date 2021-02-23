@@ -715,8 +715,8 @@ begin
 		(t->>'fee')::bigint,
         coalesce(t->>'applicationStatus', 'succeeded'),
 		(t->>'amount')::bigint,
-		coalesce(t->>'assetId', 'WAVES'),
-		coalesce(t->>'feeAsset', 'WAVES'),
+		coalesce(t->>'assetId', 'decentralcoin'),
+		coalesce(t->>'feeAsset', 'decentralcoin'),
         -- with sender
 		t->>'sender',
 		t->>'senderPublicKey',

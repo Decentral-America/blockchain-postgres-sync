@@ -47,7 +47,7 @@ END; $$;
 CREATE FUNCTION public.get_asset_id(text) RETURNS text
     LANGUAGE sql IMMUTABLE
     AS $_$
-    SELECT COALESCE($1, 'WAVES');
+    SELECT COALESCE($1, 'decentralcoin');
 $_$;
 
 CREATE FUNCTION public.insert_all(b jsonb) RETURNS void
@@ -651,8 +651,8 @@ begin
 		to_timestamp((t ->> 'timestamp') :: DOUBLE PRECISION / 1000),
 		(t->>'fee')::bigint,
 		(t->>'amount')::bigint,
-		coalesce(t->>'assetId', 'WAVES'),
-		coalesce(t->>'feeAsset', 'WAVES'),
+		coalesce(t->>'assetId', 'decentralcoin'),
+		coalesce(t->>'feeAsset', 'decentralcoin'),
 		t->>'sender',
 		t->>'senderPublicKey',
 		t->>'recipient',
@@ -998,7 +998,7 @@ CREATE VIEW public.asset_decimals AS
     txs_3.decimals
    FROM public.txs_3
 UNION ALL
- SELECT 'WAVES'::character varying AS asset_id,
+ SELECT 'decentralcoin'::character varying AS asset_id,
     8 AS decimals;
 
 CREATE TABLE public.tickers (
@@ -1074,9 +1074,9 @@ CREATE VIEW public.assets AS
            FROM public.txs_14 txs_14_1
           ORDER BY txs_14_1.asset_id, txs_14_1.height DESC) txs_14 ON (((issue.asset_id)::text = (txs_14.asset_id)::text)))
 UNION ALL
- SELECT 'WAVES'::character varying AS asset_id,
-    'WAVES'::text AS ticker,
-    'Waves'::character varying AS asset_name,
+ SELECT 'decentralcoin'::character varying AS asset_id,
+    'decentralcoin'::text AS ticker,
+    'decentralcoin'::character varying AS asset_name,
     ''::character varying AS description,
     ''::character varying AS sender,
     0 AS issue_height,

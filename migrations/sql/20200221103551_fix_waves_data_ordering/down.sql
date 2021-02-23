@@ -68,9 +68,9 @@ AS SELECT issue.asset_id,
            FROM txs_14 txs_14_1
           ORDER BY txs_14_1.asset_id, txs_14_1.height DESC) txs_14 ON issue.asset_id::text = txs_14.asset_id::text
 UNION ALL
- SELECT 'WAVES'::character varying AS asset_id,
-    'WAVES'::text AS ticker,
-    'Waves'::character varying AS asset_name,
+ SELECT 'decentralcoin'::character varying AS asset_id,
+    'decentralcoin'::text AS ticker,
+    'decentralcoin'::character varying AS asset_name,
     ''::character varying AS description,
     ''::character varying AS sender,
     0 AS issue_height,
